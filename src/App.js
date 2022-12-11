@@ -41,7 +41,7 @@ class App extends Component {
 
     //lets add our state Obj to the local storage
 
-    localStorage.setItem('state', JSON.stringify(this.state.element));
+    localStorage.setItem('state', JSON.stringify(this.state.name));
   }
 
   compoe;
