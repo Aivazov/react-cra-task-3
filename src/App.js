@@ -3,6 +3,7 @@ import { Component } from 'react';
 import './App.css';
 import Lecture_1 from './Lecture 1/Lecture_1';
 import Modal from './Lecture 1/Modal';
+import Clock from './Lecture 1/Clock';
 
 class App extends Component {
   state = {
@@ -87,15 +88,16 @@ class App extends Component {
             </button>
           </Modal>
         )}
-        <form onSubmit={this.addElement}>
+        <Clock />
+        {/* <form onSubmit={this.addElement}>
           <label>
             <input type="text" onChange={this.controledSubmit} />
           </label>
           <label>
             <input type="submit" />
           </label>
-        </form>
-        <Lecture_1 state={this.state} method={this.usingElement} />
+        </form> */}
+        {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
       </div>
     );
   }
