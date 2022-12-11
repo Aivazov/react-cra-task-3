@@ -41,9 +41,22 @@ export default class Modal extends Component {
     }
   };
 
+  // closing modal by clicking outside the modal (clicking on the backdrop)
+  handleBackdropClick = (e) => {
+    // console.log('Clicking on the backdrop');
+
+    if (e.target === e.currentTarget) {
+      console.log('target: ', e.target);
+      this.props.onCloseModal();
+    }
+
+    // console.log('target: ', e.target);
+    // console.log('currentTarget: ', e.currentTarget);
+  };
+
   render() {
     return createPortal(
-      <div className="Modal__backdrop">
+      <div className="Modal__backdrop" onClick={this.handleBackdropClick}>
         <div className="Modal__content">{this.props.children}</div>
       </div>,
       modalRoot
