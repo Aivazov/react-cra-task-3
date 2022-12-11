@@ -21,20 +21,25 @@ export default class Modal extends Component {
     //event listener hangs in this method
     // console.log('Modal componentDidMount');
 
-    window.addEventListener('keydown', (e) => {
-      // console.log('e.code', e.code);
-
-      if (e.code === 'Escape') {
-        console.log('Escape tapped');
-
-        this.props.onCloseModal(); //call the onCloseModal prop to close the modal tapping the "Escape"
-      }
-    });
+    window.addEventListener('keydown', this.handleKeydown);
   }
 
   componentWillUnmount() {
     console.log('Modal componentWillUnmount');
+
+    window.removeEventListener('keydown', this.handleKeydown);
   }
+
+  //making it as a public method to unmount it later passing a link on the method
+  handleKeydown = (e) => {
+    // console.log('e.code', e.code);
+
+    if (e.code === 'Escape') {
+      console.log('Escape tapped');
+
+      this.props.onCloseModal(); //call the onCloseModal prop to close the modal tapping the "Escape"
+    }
+  };
 
   render() {
     return createPortal(
