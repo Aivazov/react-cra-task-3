@@ -1,9 +1,35 @@
 import React, { Component } from 'react';
+import { createPortal } from 'react-dom';
 import './Modal.css';
+
+// this technique has a problem with "overflow" property and the "z-index" did not solve this issue
+// for this, the "createPortal" component is used
+
+// first, we import it into our JSX like that:
+// import { createPortal } from 'react-dom';
+
+// we go to the root "index.html" file (where is "root div") and create  <div id="root-modal"></div>
+// after that look below
+
+const modalRoot = document.querySelector('#root-modal');
+
+// and using special react method createPortal(). Put the markup into it the markup as a first argument. And as a second
+// we passing our modaRoot variable to bind
 
 export default class Modal extends Component {
   componentDidMount() {
-    console.log('Modal componentDidMount');
+    //event listener hangs in this method
+    // console.log('Modal componentDidMount');
+
+    window.addEventListener('keydown', (e) => {
+      // console.log('e.code', e.code);
+
+      if (e.code === 'Escape') {
+        console.log('Escape tapped');
+
+        this.props.onCloseModal(); //call the onCloseModal prop to close the modal tapping the "Escape"
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -11,10 +37,11 @@ export default class Modal extends Component {
   }
 
   render() {
-    return (
-      <div className='Modal__backdrop'>
-        <div className='Modal__content'>{ this.props.children }</div>
-      </div>
-    )
+    return createPortal(
+      <div className="Modal__backdrop">
+        <div className="Modal__content">{this.props.children}</div>
+      </div>,
+      modalRoot
+    );
   }
 }

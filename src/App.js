@@ -14,14 +14,14 @@ class App extends Component {
   // "Lifestyle components" always stay under the "state"
 
   componentDidMount() {
-    console.log('Did Mount');
+    // console.log('Did Mount');
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('didUpdate');
+    // console.log('didUpdate');
 
     if (this.state !== prevState.state) {
-      console.log('state object has been updated');
+      // console.log('state object has been updated');
     }
 
     //lets add our state Obj to the local storage
@@ -39,10 +39,10 @@ class App extends Component {
     // using this button unnecessary because of the toggleModal public method
     // just use the toggleModal
     // if (this.showModal === true) {
-      this.setState((prev) => {
-        return { showModal: false };
-      });
-      console.log(this.state.showModal);
+    this.setState((prev) => {
+      return { showModal: false };
+    });
+    // console.log(this.state.showModal);
     // } else {
     //   console.log(this.state.showModal);
     // }
@@ -79,7 +79,7 @@ class App extends Component {
         {/* we can render something just write the markup between the Modal Component */}
         {/* but for the rendering the inner content you should to write "this.props.children" in the Modal__content Div */}
         {showModal && (
-          <Modal>
+          <Modal onCloseModal={this.closeModal}>
             <h1>Hi there</h1>
             <p>Lorem ipsum dolor</p>
             <button type="button" onClick={this.toggleModal}>
