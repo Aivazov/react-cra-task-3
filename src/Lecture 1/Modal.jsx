@@ -13,7 +13,7 @@ export default class Modal extends Component {
   render() {
     return (
       <div className='Modal__backdrop'>
-        <div className='Modal__content'></div>
+        <div className='Modal__content'>{ this.props.children }</div>
       </div>
     )
   }
