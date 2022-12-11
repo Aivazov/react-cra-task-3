@@ -6,7 +6,7 @@ export default class Clock extends Component {
     time: new Date().toLocaleTimeString(),
   };
 
-  intervalId = null;
+  intervalId = null; // this var needed to "Unmount" the interval function to prevent its execution when interval will be hidden
 
   componentDidMount() {
     console.log('setInterval');
@@ -16,9 +16,14 @@ export default class Clock extends Component {
     }, 1000);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+    // clearing the react "subscription"
+    // it is needed only if the component will be hidden
+    // othewise, it will creates sufficient problems with the performance
+  }
+
   render() {
-    return (
-      <div className='Clock__face'>{ this.state.time }</div>
-    )
+    return <div className="Clock__face">{this.state.time}</div>;
   }
 }
