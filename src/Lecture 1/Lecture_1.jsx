@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Lecture_1({state, method}) {
+function Lecture_1({ state, method }) {
   return (
     <div>
-      <p></p>
+      <p>Hello there</p>
       <button type="button" onClick={method}>
-        {state.element}
+        {state.name}
       </button>
     </div>
   );

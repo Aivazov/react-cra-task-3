@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   usingElement = () => {
-    this.setState((prev) => ({ element: prev.element + 1 }));
+    this.setState((prev) => ({ name: prev.name + 1 }));
   };
 
   componentDidMount() {
@@ -47,8 +47,7 @@ class App extends Component {
   compoe;
 
   render() {
-
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="App">
         <form onSubmit={this.addElement}>
