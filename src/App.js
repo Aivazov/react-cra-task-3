@@ -4,6 +4,8 @@ import './App.css';
 import Lecture_1 from './Lecture 1/Lecture_1';
 import Modal from './Lecture 1/Modal';
 import Clock from './Lecture 1/Clock';
+import Tabs from './Lecture 1/Tabs';
+import JSONtabs from './Lecture 1/Tabs.json';
 
 class App extends Component {
   state = {
@@ -69,17 +71,18 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const { name, text, showModal } = this.state;
 
     return (
       <div className="App">
-        <button type="button" onClick={this.toggleModal}>
+        <Tabs items={JSONtabs} />
+        {/* <button type="button" onClick={this.toggleModal}>
           Open Modal
-        </button>
+        </button> */}
         {/* we can render something just write the markup between the Modal Component */}
         {/* but for the rendering the inner content you should to write "this.props.children" in the Modal__content Div */}
-        {showModal && (
+        {/* {showModal && (
           <Modal onCloseModal={this.closeModal}>
             <h1>Hi there</h1>
             <p>Lorem ipsum dolor</p>
@@ -87,7 +90,7 @@ class App extends Component {
               Close Modal Window
             </button>
           </Modal>
-        )}
+        )} */}
         <Clock />
         {/* <form onSubmit={this.addElement}>
           <label>
