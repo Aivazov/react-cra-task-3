@@ -5,6 +5,12 @@ class Tabs extends Component {
     activeTabIndex: 0,
   };
 
+  // this react method make it possible to not to re-render by doubleclicking on the same button
+  shouldComponentUpdate(nextProp, nextState) {
+    return nextState.activeTabIndex !== this.state.activeTabIndex;
+    //re-rendering appears only if next state of the prop does not equel to the current state
+  }
+
   setActiveTabIndex = (idx) => {
     this.setState({ activeTabIndex: idx });
   };
