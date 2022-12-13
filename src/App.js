@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
 import './App.css';
-import Lecture_1 from './Lecture 1/Lecture_1';
-import Modal from './Lecture 1/Modal';
-import Clock from './Lecture 1/Clock';
-import Tabs from './Lecture 1/Tabs';
-import JSONtabs from './Lecture 1/Tabs.json';
+import Lecture_1 from './Module 3 Lecture 1/Lecture_1';
+import Modal from './Module 3 Lecture 1/Modal';
+import Clock from './Module 3 Lecture 1/Clock';
+import Tabs from './Module 3 Lecture 1/Tabs';
+import JSONtabs from './Module 3 Lecture 1/Tabs.json';
 
 class App extends Component {
   state = {
