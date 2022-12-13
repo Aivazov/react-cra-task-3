@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+// PureComponent was designed to ease handling with doubleclicking markup elements
+// it replaced the neccessaty of using shouldComponentUpdate()
 
-class Tabs extends Component {
+class Tabs extends PureComponent {
   state = {
     activeTabIndex: 0,
   };
 
   // this react method make it possible to not to re-render by doubleclicking on the same button
-  shouldComponentUpdate(nextProp, nextState) {
-    return nextState.activeTabIndex !== this.state.activeTabIndex;
+  // shouldComponentUpdate(nextProp, nextState) {
+  //   return nextState.activeTabIndex !== this.state.activeTabIndex;
     //re-rendering appears only if next state of the prop does not equel to the current state
-  }
+  // }
 
   setActiveTabIndex = (idx) => {
     this.setState({ activeTabIndex: idx });
