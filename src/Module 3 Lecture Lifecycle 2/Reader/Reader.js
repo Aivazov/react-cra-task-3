@@ -1,4 +1,6 @@
 import { Component } from "react";
+import PropTypes from 'prop-types'; 
+
 import { Progress } from "./Progress";
 // import readingContent from "./reader.json";
 
@@ -28,7 +30,7 @@ export default class Reader extends Component {
     const {items} = this.props;
     const currentItem = this.props.items[this.state.publicationIndex];
 
-    console.log(this.props.items[this.state.publicationIndex])
+    // console.log(this.props.items[this.state.publicationIndex])
 
     return (
       <div>
@@ -49,3 +51,7 @@ export default class Reader extends Component {
     )
   }
 }
+
+Reader.propTypes = {
+  changeIndex: PropTypes.func,
+};
