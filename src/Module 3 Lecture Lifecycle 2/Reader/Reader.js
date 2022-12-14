@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Progress } from "./Progress";
 // import readingContent from "./reader.json";
 
 export default class Reader extends Component {
@@ -36,7 +37,8 @@ export default class Reader extends Component {
           <button type="button" disabled={publicationIndex + 1 >= items.length} onClick={() => this.changeIndex(1)}>Next</button> 
         </section>
 
-        <p>{publicationIndex + 1}/{items.length}</p>
+        <Progress currentIdx={publicationIndex + 1} itemsLength={items.length}/>
+        {/* <p>{publicationIndex + 1}/{items.length}</p> */}
 
         <article>
           <h2>{currentItem.title}</h2>
