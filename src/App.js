@@ -6,6 +6,8 @@ import Modal from './Module 3 Lecture 1/Modal';
 import Clock from './Module 3 Lecture 1/Clock';
 import Tabs from './Module 3 Lecture 1/Tabs';
 import JSONtabs from './Module 3 Lecture 1/Tabs.json';
+import Reader from './Module 3 Lecture Lifecycle 2/Reader/Reader';
+import ReaderJSON from './Module 3 Lecture Lifecycle 2/Reader/reader.json';
 
 class App extends Component {
   state = {
@@ -76,7 +78,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Tabs items={JSONtabs} />
+        <Reader items={ReaderJSON}/>
+        {/* <Tabs items={JSONtabs} /> */}
         {/* <button type="button" onClick={this.toggleModal}>
           Open Modal
         </button> */}
@@ -91,7 +94,7 @@ class App extends Component {
             </button>
           </Modal>
         )} */}
-        <Clock />
+        {/* <Clock /> */}
         {/* <form onSubmit={this.addElement}>
           <label>
             <input type="text" onChange={this.controledSubmit} />
