@@ -1,0 +1,36 @@
+import { Component } from "react";
+// import { ToastContainer } from "react-toastify";
+
+const POKE_API = 'https://pokeapi.co/api/v2/pokemon/ditto';
+
+export default class PokemonInfo extends Component {
+  state = {
+    pokemon: null,
+    loading: false,
+  }
+
+  componentDidMount() {
+    this.setState({loading: true})
+    setTimeout(() => {
+      fetch(POKE_API)
+      .then(res=> res.json())
+      .then(pokemon => {
+        console.log(pokemon)
+        this.setState({pokemon})}).finally(this.setState({loading: false}))
+    }, 500);
+  }
+
+  render() {
+    const {pokemon, loading} = this.state
+    return (
+      <div>
+        {loading && <p>Loading your Pokemon. Please wait...</p>}
+        {pokemon && <div>
+          <p>Name: {pokemon.name}</p>
+          <img src={pokemon.sprites.front_default} alt={pokemon.name} width="240" height="240" />
+          <p>Base experience: {pokemon.base_experience}</p>
+          </div>}
+      </div>
+    )
+  }
+}

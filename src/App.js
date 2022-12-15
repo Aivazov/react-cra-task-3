@@ -1,13 +1,16 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
 import './App.css';
-import Lecture_1 from './Module 3 Lecture 1/Lecture_1';
-import Modal from './Module 3 Lecture 1/Modal';
-import Clock from './Module 3 Lecture 1/Clock';
-import Tabs from './Module 3 Lecture 1/Tabs';
-import JSONtabs from './Module 3 Lecture 1/Tabs.json';
-import Reader from './Module 3 Lecture Lifecycle 2/Reader/Reader';
-import ReaderJSON from './Module 3 Lecture Lifecycle 2/Reader/reader.json';
+import Lecture_1 from './Module_3/Module 3 Lecture 1/Lecture_1';
+import Modal from './Module_3/Module 3 Lecture 1/Modal';
+import Clock from './Module_3/Module 3 Lecture 1/Clock';
+import Tabs from './Module_3/Module 3 Lecture 1/Tabs';
+import JSONtabs from './Module_3/Module 3 Lecture 1/Tabs.json';
+import Reader from './Module_3/Module 3 Lecture Lifecycle 2/Reader/Reader';
+import ReaderJSON from './Module_3/Module 3 Lecture Lifecycle 2/Reader/reader.json';
+import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
+
+
 
 class App extends Component {
   state = {
@@ -78,7 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Reader items={ReaderJSON}/>
+        {/* <Reader items={ReaderJSON}/> */}
         {/* <Tabs items={JSONtabs} /> */}
         {/* <button type="button" onClick={this.toggleModal}>
           Open Modal
@@ -104,6 +107,9 @@ class App extends Component {
           </label>
         </form> */}
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
+
+        {/* ***POKEMON API*** */}
+        <PokemonInfo />
       </div>
     );
   }
