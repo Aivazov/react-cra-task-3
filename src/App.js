@@ -111,8 +111,8 @@ class App extends Component {
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
 
         {/* ***POKEMON API*** */}
-        <PokemonInfo items={PokemonData} />
         <PokemonForm  />
+        <PokemonInfo items={PokemonData} />
       </div>
     );
   }
