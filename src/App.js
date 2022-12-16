@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
 import './App.css';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
 import Lecture_1 from './Module_3/Module 3 Lecture 1/Lecture_1';
 import Modal from './Module_3/Module 3 Lecture 1/Modal';
 import Clock from './Module_3/Module 3 Lecture 1/Clock';
@@ -13,13 +13,12 @@ import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
 import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
 // import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
 
-
-
 class App extends Component {
   state = {
     name: 'asdfas',
     text: '',
     showModal: false,
+    pokemonName: '',
   };
 
   // "Lifestyle components" always stay under the "state"
@@ -113,9 +112,8 @@ class App extends Component {
 
         {/* ***POKEMON API*** */}
         <ToastContainer autoClose={3000} />
-        <PokemonForm  />
+        <PokemonForm />
         <PokemonInfo />
-
       </div>
     );
   }
