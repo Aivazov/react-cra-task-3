@@ -112,10 +112,10 @@ class App extends Component {
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
 
         {/* ***POKEMON API*** */}
+        <ToastContainer autoClose={3000} />
         <PokemonForm  />
         <PokemonInfo />
 
-        <ToastContainer />
       </div>
     );
   }
