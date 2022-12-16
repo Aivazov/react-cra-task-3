@@ -1,5 +1,4 @@
 import { Component } from "react";
-// import { ToastContainer } from "react-toastify";
 
 const POKE_API = 'https://pokeapi.co/api/v2/pokemon/ditto';
 

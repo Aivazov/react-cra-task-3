@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
 import './App.css';
+import { ToastContainer } from "react-toastify";
 import Lecture_1 from './Module_3/Module 3 Lecture 1/Lecture_1';
 import Modal from './Module_3/Module 3 Lecture 1/Modal';
 import Clock from './Module_3/Module 3 Lecture 1/Clock';
@@ -113,6 +114,8 @@ class App extends Component {
         {/* ***POKEMON API*** */}
         <PokemonForm  />
         <PokemonInfo />
+
+        <ToastContainer />
       </div>
     );
   }
