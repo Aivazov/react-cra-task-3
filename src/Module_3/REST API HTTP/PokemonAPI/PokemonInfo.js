@@ -1,7 +1,8 @@
 import { Component } from "react";
 // import { ToastContainer } from "react-toastify";
 
-const POKE_API = 'https://pokeapi.co/api/v2/pokemon/ditto';
+// const POKE_API = 'https://pokeapi.co/api/v2/pokemon/ditto';
+
 
 export default class PokemonInfo extends Component {
   state = {
@@ -10,9 +11,12 @@ export default class PokemonInfo extends Component {
   }
 
   componentDidMount() {
+    const POKE_API_JSON = this.props.items;
+
     this.setState({loading: true})
     setTimeout(() => {
-      fetch(POKE_API)
+      // fetch(POKE_API)
+      fetch(POKE_API_JSON)
       .then(res=> res.json())
       .then(pokemon => {
         console.log(pokemon)
@@ -22,6 +26,7 @@ export default class PokemonInfo extends Component {
 
   render() {
     const {pokemon, loading} = this.state
+    // console.log(POKE_API_JSON);
     return (
       <div>
         {loading && <p>Loading your Pokemon. Please wait...</p>}

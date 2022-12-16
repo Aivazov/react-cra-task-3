@@ -9,6 +9,7 @@ import JSONtabs from './Module_3/Module 3 Lecture 1/Tabs.json';
 import Reader from './Module_3/Module 3 Lecture Lifecycle 2/Reader/Reader';
 import ReaderJSON from './Module_3/Module 3 Lecture Lifecycle 2/Reader/reader.json';
 import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
+import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
 
 
 
@@ -109,7 +110,7 @@ class App extends Component {
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
 
         {/* ***POKEMON API*** */}
-        <PokemonInfo />
+        <PokemonInfo items={PokemonData} />
       </div>
     );
   }
