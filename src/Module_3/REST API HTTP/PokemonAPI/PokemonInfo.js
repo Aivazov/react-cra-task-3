@@ -7,6 +7,7 @@ export default class PokemonInfo extends Component {
   state = {
     pokemon: null,
     loading: false,
+    error: null,
   };
 
   componentDidMount() {
@@ -28,24 +29,36 @@ export default class PokemonInfo extends Component {
     if (prevProp.pokemonName !== this.props.pokemonName) {
       console.log('The pokemon name was changed');
 
-      this.setState({loading: true})
+      this.setState({ loading: true });
 
-      fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`)
-      .then((res) => res.json())
-      .then(pokemon => {
-        console.log(pokemon);
-        this.setState({pokemon})
-      })
-      .finally(this.setState({loading: false})
-      );
+      setTimeout(() => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`)
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            return Promise.reject(
+              new Error(
+                `We do not have a Pokemon with name "${this.props.pokemonName}"`
+              )
+            );
+          })
+          .then((pokemon) => {
+            console.log(pokemon);
+            this.setState({ pokemon });
+          })
+          .catch((error) => this.setState({ error }))
+          .finally(this.setState({ loading: false, error: null }));
+      }, 500);
     }
   }
 
   render() {
-    const { pokemon, loading } = this.state;
+    const { pokemon, loading, error } = this.state;
     // console.log(POKE_API_JSON);
     return (
       <div>
+        {error && <p>{error.message}</p>}
         {loading && <p>Loading your Pokemon. Please wait...</p>}
         {pokemon && (
           <div>
