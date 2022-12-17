@@ -29,7 +29,7 @@ export default class PokemonInfo extends Component {
     if (prevProp.pokemonName !== this.props.pokemonName) {
       console.log('The pokemon name was changed');
 
-      this.setState({ loading: true });
+      this.setState({ loading: true, pokemon: null });
 
       setTimeout(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`)
