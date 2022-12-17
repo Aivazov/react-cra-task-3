@@ -87,6 +87,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        {/* ********************MODULE_3******************** */}
         {/* <Reader items={ReaderJSON}/> */}
         {/* <Tabs items={JSONtabs} /> */}
         {/* <button type="button" onClick={this.toggleModal}>
@@ -113,9 +114,9 @@ class App extends Component {
           </label>
         </form> */}
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
-
         {/* ***POKEMON API*** */}
-        <ToastContainer autoClose={3000} />
+        <ToastContainer autoClose={3000} />{' '}
+        {/* this is a notiflix alternative */}
         <PokemonForm onSubmit={this.handlePokemonSubmit} />
         <PokemonInfo pokemonName={this.state.pokemonName} />
       </div>
