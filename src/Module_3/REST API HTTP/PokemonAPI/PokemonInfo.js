@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { ImSpinner } from 'react-icons/im';
+import './PokemonInfo.css';
 
 // const POKE_API = `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`;
 // `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`
@@ -68,7 +70,12 @@ export default class PokemonInfo extends Component {
 
     if (status === 'pending') {
       console.log(status);
-      return <p>Loading your Pokemon. Please wait...</p>;
+      return (
+        <div>
+          <ImSpinner size="32" className='icon-spin'/>
+          <p>Loading your Pokemon. Please wait...</p>
+        </div>
+      );
     }
 
     if (status === 'rejected') {
