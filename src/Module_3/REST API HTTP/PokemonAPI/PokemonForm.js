@@ -15,6 +15,7 @@ export default class PokemonForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    this.props.onSubmit(this.state.pokemonName);
     if (this.state.pokemonName.trim() === '') {
       return toast.error('Please enter a pokemon name');
     }

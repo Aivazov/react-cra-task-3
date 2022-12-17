@@ -77,6 +77,10 @@ class App extends Component {
     this.setState((prev) => ({ name: prev.name + 1 }));
   };
 
+  handlePokemonSubmit = (pokemonName) => {
+    this.setState({ pokemonName });
+  };
+
   render() {
     // console.log(this.state);
     const { name, text, showModal } = this.state;
@@ -112,8 +116,8 @@ class App extends Component {
 
         {/* ***POKEMON API*** */}
         <ToastContainer autoClose={3000} />
-        <PokemonForm />
-        <PokemonInfo />
+        <PokemonForm onSubmit={this.handlePokemonSubmit} />
+        <PokemonInfo pokemonName={this.state.pokemonName} />
       </div>
     );
   }
