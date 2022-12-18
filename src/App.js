@@ -110,10 +110,25 @@ class App extends Component {
   };
 
   removeMaterial = async (id) => {
-    await API.removeMaterial(id);
-    this.setState((state) => ({
-      materials: state.materials.filter((material) => material.id !== id),
-    }));
+    try {
+      await API.removeMaterial(id);
+      this.setState((state) => ({
+        materials: state.materials.filter((material) => material.id !== id),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  updateMaterial = async (fields) => {
+    try {
+      const updatedMaterial = await API.updateMaterial(fields);
+      this.setState((state) => ({
+        materials: state.materials,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
