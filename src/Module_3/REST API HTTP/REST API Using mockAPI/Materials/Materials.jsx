@@ -1,13 +1,12 @@
-import './Materials.css';
-import { RiDeleteBin6Line } from 'react-icons/ri';
-import { IoMdAddCircleOutline } from 'react-icons/io';
+import { Material } from '../components/Material/Material';
 
-export const Materials = ({ listItems, onDelete, onUpdate }) => {
+export const Materials = ({ listItems, ...otherProps }) => {
   return (
     <ul>
       {listItems.map((item) => (
         <li key={item.id}>
-          <p>
+          <Material item={item} {...otherProps} />
+          {/* <p>
             <b>Name:</b> {item.name}
           </p>
           <p>
@@ -26,7 +25,7 @@ export const Materials = ({ listItems, onDelete, onUpdate }) => {
             onClick={() => onDelete(item.id)}>
             <RiDeleteBin6Line />
             Remove Item
-          </button>
+          </button> */}
         </li>
       ))}
     </ul>
