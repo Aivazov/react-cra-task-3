@@ -151,7 +151,6 @@ class App extends Component {
         <MaterialsFormEditor
           onSubmit={this.addMaterial}
           isSubmitting={isLoading}
-          onDelete={console.log}
         />
         {isLoading && (
           <div>
@@ -159,7 +158,7 @@ class App extends Component {
             <p>Adding element...</p>
           </div>
         )}
-        <Materials listItems={materials} />
+        <Materials listItems={materials} onDelete={console.log} />
       </div>
     );
   }
