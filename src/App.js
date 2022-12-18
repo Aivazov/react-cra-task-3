@@ -11,8 +11,9 @@ import Reader from './Module_3/Module 3 Lecture Lifecycle 2/Reader/Reader';
 import ReaderJSON from './Module_3/Module 3 Lecture Lifecycle 2/Reader/reader.json';
 import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
 import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
-import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
 // import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
+import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
+import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
 
 class App extends Component {
   state = {
@@ -20,6 +21,7 @@ class App extends Component {
     text: '',
     showModal: false,
     pokemonName: '',
+    materials: [],
   };
 
   // "Lifestyle components" always stay under the "state"
@@ -82,9 +84,15 @@ class App extends Component {
     this.setState({ pokemonName });
   };
 
+  addMaterial = async (values) => {
+    const material = await API.addMaterial(values);
+    this.setState((state) => ({ materials: [...state.materials, material] }));
+  };
+
   render() {
     // console.log(this.state);
     const { name, text, showModal } = this.state;
+    console.log(this.state.materials);
 
     return (
       <div className="App">
@@ -120,7 +128,7 @@ class App extends Component {
         {/* this is a notiflix alternative */}
         {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
         {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
-        <MaterialsFormEditor onSubmit={console.log}/>
+        <MaterialsFormEditor onSubmit={this.addMaterial} />
       </div>
     );
   }
