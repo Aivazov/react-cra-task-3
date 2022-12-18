@@ -151,6 +151,7 @@ class App extends Component {
         <MaterialsFormEditor
           onSubmit={this.addMaterial}
           isSubmitting={isLoading}
+          onDelete={console.log}
         />
         {isLoading && (
           <div>

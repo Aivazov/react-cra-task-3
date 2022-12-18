@@ -11,3 +11,8 @@ export const getMaterials = async () => {
   const response = await axios.get('/materials');
   return response.data;
 };
+
+export const removeMaterial = async (id) => {
+  const response = await axios.delete(`/materials/${id}`);
+  return response.data;
+};

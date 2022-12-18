@@ -20,7 +20,7 @@ export const MaterialsFormEditor = ({ onSubmit, isSubmitting }) => {
           <Field name="avatar" type="text" className="name-input" required />
         </label>
         <button type="submit" disabled={isSubmitting}>
-          Add material
+          Add item
         </button>
       </Form>
       {/* )
