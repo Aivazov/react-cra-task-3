@@ -5,8 +5,8 @@ export const Materials = ({ listItems }) => {
     <ul>
       {listItems.map((item) => (
         <li key={item.id}>
-          <p>Name: {item.name}</p>
-          <p>Link: {item.avatar}</p>
+          <p><b>Name:</b> {item.name}</p>
+          <p><b>Link:</b> {item.avatar}</p>
         </li>
       ))}
     </ul>
