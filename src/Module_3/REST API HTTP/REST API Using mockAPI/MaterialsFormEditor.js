@@ -16,7 +16,7 @@ export const MaterialsFormEditor = ({ onSubmit }) => {
         </label>
         <label>
           Link
-          <Field name="avatar" type="text" />
+          <Field name="avatar" type="text" className="name-input" />
         </label>
         <button type="submit">Add material</button>
       </Form>
