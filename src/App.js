@@ -109,6 +109,13 @@ class App extends Component {
     }
   };
 
+  removeMaterial = async (id) => {
+    await API.removeMaterial(id);
+    this.setState((state) => ({
+      materials: state.materials.filter((material) => material.id !== id),
+    }));
+  };
+
   render() {
     // console.log(this.state);
     const { name, text, showModal, isLoading, materials } = this.state;
@@ -158,7 +165,7 @@ class App extends Component {
             <p>Adding element...</p>
           </div>
         )}
-        <Materials listItems={materials} onDelete={console.log} />
+        <Materials listItems={materials} onDelete={this.removeMaterial} />
       </div>
     );
   }
