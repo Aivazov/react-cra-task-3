@@ -1,19 +1,19 @@
 .form-input {
-  display: flex;
-  justify-content: space-between;
-  /* flex-direction: column; */
-  flex-flow: column;
-  align-items: center;
-  width: 400px;
+  width: 270px;
+  border: 1px solid black;
+  margin: 10px;
 }
 
 .form-input label {
-  /* background-color: red; */
-  justify-content: flex-start;
-  margin: 0 auto 0 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px 0 10px;
 }
 
 .name-input {
-  /* margin: 0 0 0 auto; */
-  justify-content: flex-end;
+}
+
+button {
+  margin: 10px;
+  width: 140px;
 }

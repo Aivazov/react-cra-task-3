@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ImSpinner } from 'react-icons/im';
-import './PokemonInfo.css';
+import '../../../help styles/SpinnerStyles.css';
 
 // const POKE_API = `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`;
 // `https://pokeapi.co/api/v2/pokemon/${this.props.pokemonName}`

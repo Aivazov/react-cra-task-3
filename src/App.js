@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import { Component } from 'react';
+import { ImSpinner } from 'react-icons/im';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import Lecture_1 from './Module_3/Module 3 Lecture 1/Lecture_1';
@@ -15,6 +16,7 @@ import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
 import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
 import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Materials/Materials';
 import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
+import './help styles/SpinnerStyles.css';
 
 class App extends Component {
   state = {
@@ -31,8 +33,13 @@ class App extends Component {
   async componentDidMount() {
     // console.log('Did Mount');
 
-    const materials = await API.getMaterials();
-    this.setState({ materials });
+    try {
+      this.setState({ isLoading: true });
+      const materials = await API.getMaterials();
+      this.setState({ materials, isLoading: false });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -145,7 +152,12 @@ class App extends Component {
           onSubmit={this.addMaterial}
           isSubmitting={isLoading}
         />
-        {isLoading && <p>Adding element...</p>}
+        {isLoading && (
+          <div>
+            <ImSpinner size="32" className="icon-spin" />
+            <p>Adding element...</p>
+          </div>
+        )}
         <Materials listItems={materials} />
       </div>
     );
