@@ -1,0 +1,13 @@
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  flex-flow: column;
+  align-items: center;
+  width: 400px;
+}
+
+label {
+  /* background-color: red; */
+  justify-content: flex-start;
+}

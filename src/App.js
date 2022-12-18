@@ -11,6 +11,7 @@ import Reader from './Module_3/Module 3 Lecture Lifecycle 2/Reader/Reader';
 import ReaderJSON from './Module_3/Module 3 Lecture Lifecycle 2/Reader/reader.json';
 import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
 import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
+import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
 // import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
 
 class App extends Component {
@@ -115,10 +116,11 @@ class App extends Component {
         </form> */}
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
         {/* ***POKEMON API*** */}
-        <ToastContainer autoClose={3000} />{' '}
+        {/* <ToastContainer autoClose={3000} />{' '} */}
         {/* this is a notiflix alternative */}
-        <PokemonForm onSubmit={this.handlePokemonSubmit} />
-        <PokemonInfo pokemonName={this.state.pokemonName} />
+        {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
+        {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
+        <MaterialsFormEditor onSubmit={console.log}/>
       </div>
     );
   }
