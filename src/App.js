@@ -13,6 +13,7 @@ import PokemonInfo from './Module_3/REST API HTTP/PokemonAPI/PokemonInfo';
 import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
 // import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
 import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
+import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Materials/Materials';
 import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
 
 class App extends Component {
@@ -27,8 +28,11 @@ class App extends Component {
 
   // "Lifestyle components" always stay under the "state"
 
-  componentDidMount() {
+  async componentDidMount() {
     // console.log('Did Mount');
+
+    const materials = await API.getMaterials();
+    this.setState({ materials });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -137,8 +141,12 @@ class App extends Component {
         {/* this is a notiflix alternative */}
         {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
         {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
-        <MaterialsFormEditor onSubmit={this.addMaterial} isSubmitting={isLoading}/>
+        <MaterialsFormEditor
+          onSubmit={this.addMaterial}
+          isSubmitting={isLoading}
+        />
         {isLoading && <p>Adding element...</p>}
+        <Materials listItems={materials} />
       </div>
     );
   }
