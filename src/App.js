@@ -22,6 +22,7 @@ class App extends Component {
     showModal: false,
     pokemonName: '',
     materials: [],
+    isLoading: false,
   };
 
   // "Lifestyle components" always stay under the "state"
@@ -85,14 +86,22 @@ class App extends Component {
   };
 
   addMaterial = async (values) => {
-    const material = await API.addMaterial(values);
-    this.setState((state) => ({ materials: [...state.materials, material] }));
+    try {
+      this.setState({ isLoading: true });
+      const material = await API.addMaterial(values);
+      this.setState((state) => ({
+        materials: [...state.materials, material],
+        isLoading: false,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
     // console.log(this.state);
-    const { name, text, showModal } = this.state;
-    console.log(this.state.materials);
+    const { name, text, showModal, isLoading, materials } = this.state;
+    console.log(materials);
 
     return (
       <div className="App">
@@ -129,6 +138,7 @@ class App extends Component {
         {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
         {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
         <MaterialsFormEditor onSubmit={this.addMaterial} />
+        {isLoading && <p>Adding element...</p>}
       </div>
     );
   }
