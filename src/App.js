@@ -137,7 +137,7 @@ class App extends Component {
         {/* this is a notiflix alternative */}
         {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
         {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
-        <MaterialsFormEditor onSubmit={this.addMaterial} />
+        <MaterialsFormEditor onSubmit={this.addMaterial} isSubmitting={isLoading}/>
         {isLoading && <p>Adding element...</p>}
       </div>
     );
