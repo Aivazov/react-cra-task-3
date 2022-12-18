@@ -124,7 +124,9 @@ class App extends Component {
     try {
       const updatedMaterial = await API.updateMaterial(fields);
       this.setState((state) => ({
-        materials: state.materials,
+        materials: state.materials.map((material) =>
+          material.id === fields.id ? updatedMaterial : material
+        ),
       }));
     } catch (error) {
       console.log(error);
@@ -180,7 +182,11 @@ class App extends Component {
             <p>Adding element...</p>
           </div>
         )}
-        <Materials listItems={materials} onDelete={this.removeMaterial} />
+        <Materials
+          listItems={materials}
+          onDelete={this.removeMaterial}
+          onUpdate={this.updateMaterial}
+        />
       </div>
     );
   }

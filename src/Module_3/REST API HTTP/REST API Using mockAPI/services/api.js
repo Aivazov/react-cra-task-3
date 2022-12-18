@@ -18,6 +18,6 @@ export const removeMaterial = async (id) => {
 };
 
 export const updateMaterial = async (fields) => {
-  const response = await axios.put(`/materials/${fields.id}`);
+  const response = await axios.put(`/materials/${fields.id}`, fields);
   return response.data;
 };

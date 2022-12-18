@@ -21,7 +21,7 @@ li {
   border-bottom: 1px solid #000;
 }
 
-.remove-button {
+.materials-buttons {
   display: inline;
-  width: 40px;
+  min-width: 40px;
 }
