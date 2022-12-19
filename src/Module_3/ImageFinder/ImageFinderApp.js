@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import * as API from './services/api';
 
+import { Searchbar } from "./components/Searchbar/Searchbar";
+
 export default class ImageFinderApp extends Component {
   state = {
     imageGalleryPage: null,
@@ -24,7 +26,8 @@ export default class ImageFinderApp extends Component {
   render() {
     return (
       <div>
-        The Gallery will be here soon...
+        {/* The Gallery will be here soon... */}
+        <Searchbar />
       </div>
     );
   }
