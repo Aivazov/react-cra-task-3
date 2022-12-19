@@ -137,7 +137,7 @@ class App extends Component {
   render() {
     // console.log(this.state);
     const { name, text, showModal, isLoading, materials } = this.state;
-    console.log(materials);
+    // console.log(materials);
 
     return (
       <div className="App">
@@ -168,11 +168,14 @@ class App extends Component {
           </label>
         </form> */}
         {/* <Lecture_1 state={this.state} method={this.usingElement} /> */}
+
         {/* ***POKEMON API*** */}
-        {/* <ToastContainer autoClose={3000} />{' '} */}
+        {/* <ToastContainer autoClose={3000} /> */}
         {/* this is a notiflix alternative */}
-        {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
-        {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
+        {/* <PokemonForm onSubmit={this.handlePokemonSubmit} />
+        <PokemonInfo pokemonName={this.state.pokemonName} /> */}
+
+        {/* ***MockAPI Materials*** */}
         {/* <MaterialsFormEditor
           onSubmit={this.addMaterial}
           isSubmitting={isLoading}

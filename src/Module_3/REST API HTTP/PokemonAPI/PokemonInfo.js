@@ -60,6 +60,7 @@ export default class PokemonInfo extends Component {
 
   render() {
     const { pokemon, loading, error, status } = this.state;
+    console.log('pokemon from PokemonInfo: ', pokemon);
     // console.log(POKE_API_JSON);
 
     // the last thing is use of the state machine
@@ -72,7 +73,7 @@ export default class PokemonInfo extends Component {
       console.log(status);
       return (
         <div>
-          <ImSpinner size="32" className='icon-spin'/>
+          <ImSpinner size="32" className="icon-spin" />
           <p>Loading your Pokemon. Please wait...</p>
         </div>
       );

@@ -19,7 +19,7 @@ export default class ImageFinderApp extends Component {
       this.setState({ loading: true });
       const images = await API.getImages();
       this.setState({ images, loading: false });
-      console.log('state images', this.state.images);
+      console.log('images from API', this.state.images);
     } catch (error) {
       console.log(error);
     }
