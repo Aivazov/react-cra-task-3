@@ -137,7 +137,7 @@ class App extends Component {
   render() {
     // console.log(this.state);
     const { name, text, showModal, isLoading, materials } = this.state;
-    // console.log(materials);
+    // console.log('state.materials: ', materials);
 
     return (
       <div className="App">
@@ -191,6 +191,9 @@ class App extends Component {
           onDelete={this.removeMaterial}
           onUpdate={this.updateMaterial}
         /> */}
+
+        {/* ***ImageFinderApp*** */}
+
         <ImageFinderApp />
       </div>
     );

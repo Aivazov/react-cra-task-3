@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import * as API from './services/api';
+import * as ImageGalleryAPI from './services/gallery_api';
 
 import { Searchbar } from './components/Searchbar/Searchbar';
 import { ImageGallery } from './components/ImageGallery/ImageGallery';
@@ -17,7 +17,7 @@ export default class ImageFinderApp extends Component {
   async componentDidMount() {
     try {
       this.setState({ loading: true });
-      const images = await API.getImages();
+      const images = await ImageGalleryAPI.getImages();
       this.setState({ images, loading: false });
       console.log('images from API', this.state.images);
     } catch (error) {
@@ -28,8 +28,10 @@ export default class ImageFinderApp extends Component {
   componentDidUpdate() {}
 
   render() {
-    // console.log('array of images in the render el', this.state.images.hits);
-    // const mapped = this.state.images.map((el) =>
+    // const obj = Object.values(this.state.images.hits);
+    const array = this.state.images.hits;
+    console.log('state images in the render el', array);
+    // array.map((el) =>
     //   console.log('each el: ', el)
     // );
     // console.log('mapped hits: ', mapped);

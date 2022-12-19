@@ -5,7 +5,7 @@ import './Searchbar.css';
 export const Searchbar = () => {
   return (
     <header className="searchbar">
-      <Formik >
+      <Formik initialValues={{ hello: '' }} onSubmit={(hi) => console.log(hi)}>
         <Form className="form">
           <button type="submit" className="button">
             <BiSearch size="32" className="react-icons-search" />
