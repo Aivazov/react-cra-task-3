@@ -17,6 +17,7 @@ import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using moc
 import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Materials/Materials';
 import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
 import './help styles/SpinnerStyles.css';
+import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
 
 class App extends Component {
   state = {
@@ -172,7 +173,7 @@ class App extends Component {
         {/* this is a notiflix alternative */}
         {/* <PokemonForm onSubmit={this.handlePokemonSubmit} /> */}
         {/* <PokemonInfo pokemonName={this.state.pokemonName} /> */}
-        <MaterialsFormEditor
+        {/* <MaterialsFormEditor
           onSubmit={this.addMaterial}
           isSubmitting={isLoading}
         />
@@ -186,7 +187,8 @@ class App extends Component {
           listItems={materials}
           onDelete={this.removeMaterial}
           onUpdate={this.updateMaterial}
-        />
+        /> */}
+        <ImageFinderApp />
       </div>
     );
   }
