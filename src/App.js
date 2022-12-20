@@ -18,6 +18,7 @@ import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Mater
 // import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
 import './help styles/SpinnerStyles.css';
 import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
+import Phonebook from './Module_3/Phonebook/Phonebook';
 
 class App extends Component {
   state = {
@@ -33,7 +34,6 @@ class App extends Component {
 
   async componentDidMount() {
     // console.log('Did Mount');
-
     // try {
     //   this.setState({ isLoading: true });
     //   const materials = await API.getMaterials();
@@ -194,7 +194,10 @@ class App extends Component {
 
         {/* ***ImageFinderApp*** */}
 
-        <ImageFinderApp />
+        {/* <ImageFinderApp /> */}
+
+        {/* ***Phonebook*** */}
+        <Phonebook />
       </div>
     );
   }
