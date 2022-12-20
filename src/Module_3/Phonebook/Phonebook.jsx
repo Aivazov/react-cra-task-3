@@ -21,6 +21,18 @@ class Phonebook extends React.Component {
     number: '',
   };
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+    this.setState({ contacts: parsedContacts });
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   addContact = (e) => {
     e.preventDefault();
     let newContact = {
@@ -75,7 +87,9 @@ class Phonebook extends React.Component {
 
   // filteringContacts = () => {
   //   const normalizedFilter = this.state.filter.toLowerCase();
-  //   return this.state.contacts.filter(contact => contact.name.includes(normalizedFilter))
+  //   return this.state.contacts.filter((contact) =>
+  //     contact.name.toLowerCase().includes(normalizedFilter)
+  //     );
   // }
 
   // uncontroledSubmit(e) {
