@@ -39,7 +39,7 @@ export default class ImageFinderApp extends Component {
       <div>
         {/* The Gallery will be here soon... */}
         <Searchbar />
-        {/* <ImageGallery items={this.state.images.hits} /> */}
+        <ImageGallery items={this.state.images.hits} />
       </div>
     );
   }
