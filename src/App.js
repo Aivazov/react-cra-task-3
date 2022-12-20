@@ -15,7 +15,7 @@ import PokemonForm from './Module_3/REST API HTTP/PokemonAPI/PokemonForm';
 // import PokemonData from "./Module_3/REST API HTTP/PokemonAPI/PokemonData.json";
 import { MaterialsFormEditor } from './Module_3/REST API HTTP/REST API Using mockAPI/MaterialsFormEditor';
 import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Materials/Materials';
-import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
+// import * as API from './Module_3/REST API HTTP/REST API Using mockAPI/services/api';
 import './help styles/SpinnerStyles.css';
 import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
 
@@ -34,13 +34,13 @@ class App extends Component {
   async componentDidMount() {
     // console.log('Did Mount');
 
-    try {
-      this.setState({ isLoading: true });
-      const materials = await API.getMaterials();
-      this.setState({ materials, isLoading: false });
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   this.setState({ isLoading: true });
+    //   const materials = await API.getMaterials();
+    //   this.setState({ materials, isLoading: false });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -97,42 +97,42 @@ class App extends Component {
     this.setState({ pokemonName });
   };
 
-  addMaterial = async (values) => {
-    try {
-      this.setState({ isLoading: true });
-      const material = await API.addMaterial(values);
-      this.setState((state) => ({
-        materials: [...state.materials, material],
-        isLoading: false,
-      }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // addMaterial = async (values) => {
+  //   try {
+  //     this.setState({ isLoading: true });
+  //     const material = await API.addMaterial(values);
+  //     this.setState((state) => ({
+  //       materials: [...state.materials, material],
+  //       isLoading: false,
+  //     }));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  removeMaterial = async (id) => {
-    try {
-      await API.removeMaterial(id);
-      this.setState((state) => ({
-        materials: state.materials.filter((material) => material.id !== id),
-      }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // removeMaterial = async (id) => {
+  //   try {
+  //     await API.removeMaterial(id);
+  //     this.setState((state) => ({
+  //       materials: state.materials.filter((material) => material.id !== id),
+  //     }));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  updateMaterial = async (fields) => {
-    try {
-      const updatedMaterial = await API.updateMaterial(fields);
-      this.setState((state) => ({
-        materials: state.materials.map((material) =>
-          material.id === fields.id ? updatedMaterial : material
-        ),
-      }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // updateMaterial = async (fields) => {
+  //   try {
+  //     const updatedMaterial = await API.updateMaterial(fields);
+  //     this.setState((state) => ({
+  //       materials: state.materials.map((material) =>
+  //         material.id === fields.id ? updatedMaterial : material
+  //       ),
+  //     }));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   render() {
     // console.log(this.state);
