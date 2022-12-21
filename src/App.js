@@ -194,10 +194,10 @@ class App extends Component {
 
         {/* ***ImageFinderApp*** */}
 
-        <ImageFinderApp />
+        {/* <ImageFinderApp /> */}
 
         {/* ***Phonebook*** */}
-        {/* <Phonebook /> */}
+        <Phonebook />
       </div>
     );
   }
