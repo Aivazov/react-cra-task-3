@@ -16,15 +16,19 @@ class Phonebook extends React.Component {
       { id: 'id-2', name: 'Morti Coul', number: '555-17-22' },
       { id: 'id-3', name: 'Harry Williams', number: '555-89-12' },
     ],
-    filter: '',
+    stateFilter: '',
     name: '',
     number: '',
   };
 
   componentDidMount() {
-    // const contacts = localStorage.getItem('contacts');
-    // const parsedContacts = JSON.parse(contacts);
-    // this.setState({ contacts: parsedContacts });
+    if (this.state.contacts !== null) {
+      const contacts = localStorage.getItem('contacts');
+      if (contacts !== null) {
+        const parsedContacts = JSON.parse(contacts);
+        this.setState({ contacts: parsedContacts });
+      }
+    }
   }
 
   componentDidUpdate(_, prevState) {
@@ -48,7 +52,7 @@ class Phonebook extends React.Component {
     this.setState((prev) => ({
       contacts: [...prev.contacts, newContact],
     }));
-    console.log(this.state.contacts);
+    // console.log(this.state.contacts);
   };
 
   removeContact = (id) => {
@@ -58,7 +62,7 @@ class Phonebook extends React.Component {
   };
 
   showContacts = () => {
-    console.log(this.state.contacts);
+    // console.log(this.state.contacts);
   };
 
   controledSubmit = (e) => {
@@ -77,19 +81,17 @@ class Phonebook extends React.Component {
     e.preventDefault();
 
     this.formReset();
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   changeFilter = (e) => {
-    this.setState({ filter: e.currentTarget.value });
-    console.log(this.state.filter);
+    this.setState({ stateFilter: e.currentTarget.value });
+    // console.log(this.state.stateFilter);
   };
 
   // filteringContacts = () => {
-  //   const normalizedFilter = this.state.filter.toLowerCase();
-  //   return this.state.contacts.filter((contact) =>
-  //     contact.name.toLowerCase().includes(normalizedFilter)
-  //     );
+  //   const normalizedFilter = this.state.stateFilter.toLowerCase();
+  //   return this.state.contacts.stateFilter(contact => contact.name.includes(normalizedFilter))
   // }
 
   // uncontroledSubmit(e) {
@@ -114,11 +116,13 @@ class Phonebook extends React.Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { contacts, stateFilter } = this.state;
+    // const contactsLength = contacts.length;
     // console.log(this.state.contacts);
+    // console.log(this.state.contacts.length);
 
-    const normalizedFilter = filter.toLowerCase();
-    const filteredContacts = contacts.filter((contact) =>
+    const normalizedFilter = stateFilter.toLowerCase();
+    const filteredContacts = this.state.contacts.filter((contact) =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
     return (
@@ -127,7 +131,8 @@ class Phonebook extends React.Component {
         <form
           className="border p-3 mb-3"
           autoComplete="off"
-          onSubmit={this.addContact}>
+          onSubmit={this.addContact}
+        >
           <NameField
             controledSubmit={this.controledSubmit}
             name={this.state.name}
@@ -145,13 +150,13 @@ class Phonebook extends React.Component {
           <input
             type="text"
             className="d-block mt-1"
-            value={filter}
+            value={stateFilter}
             onChange={this.changeFilter}
           />
         </label>
 
         <ul className="ulStyle">
-          {contacts.length ? (
+          {(contacts || []).length ? (
             <ContactList
               contacts={filteredContacts}
               onDelete={this.removeContact}
