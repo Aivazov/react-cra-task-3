@@ -20,6 +20,7 @@ import './help styles/SpinnerStyles.css';
 import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
 import Phonebook from './Module_3/Phonebook/Phonebook';
 // import Sample from './Module_3/Sample/Sample';
+import ControledFormSample from './Module_3/Sample/ControledFormSample';
 
 class App extends Component {
   state = {
@@ -201,6 +202,7 @@ class App extends Component {
         {/* <Phonebook /> */}
 
         {/* <Sample /> */}
+        {/* <ControledFormSample /> */}
       </div>
     );
   }
