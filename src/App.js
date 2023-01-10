@@ -19,6 +19,7 @@ import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Mater
 import './help styles/SpinnerStyles.css';
 import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
 import Phonebook from './Module_3/Phonebook/Phonebook';
+// import Sample from './Module_3/Sample/Sample';
 
 class App extends Component {
   state = {
@@ -198,6 +199,8 @@ class App extends Component {
 
         {/* ***Phonebook*** */}
         {/* <Phonebook /> */}
+
+        {/* <Sample /> */}
       </div>
     );
   }
