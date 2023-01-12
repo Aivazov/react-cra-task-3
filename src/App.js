@@ -19,7 +19,7 @@ import { Materials } from './Module_3/REST API HTTP/REST API Using mockAPI/Mater
 import './help styles/SpinnerStyles.css';
 import ImageFinderApp from './Module_3/ImageFinder/ImageFinderApp';
 import Phonebook from './Module_3/Phonebook/Phonebook';
-// import Sample from './Module_3/Sample/Sample';
+import Sample from './Module_3/Sample/Sample';
 import ControledFormSample from './Module_3/Sample/ControledFormSample';
 
 class App extends Component {
@@ -196,13 +196,13 @@ class App extends Component {
 
         {/* ***ImageFinderApp*** */}
 
-        <ImageFinderApp />
+        {/* <ImageFinderApp /> */}
 
         {/* ***Phonebook*** */}
         {/* <Phonebook /> */}
 
-        {/* <Sample /> */}
-        {/* <ControledFormSample /> */}
+        {/* <Sample /> 
+        <ControledFormSample /> */}
       </div>
     );
   }
